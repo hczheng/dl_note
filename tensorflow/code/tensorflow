@@ -1,0 +1,108 @@
+pip安装 
+sudo apt-get install python-pip python-dev
+sudo pip install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.10.0-cp27-none-linux_x86_64.whl
+
+测试
+$ python
+...
+>>> import tensorflow as tf
+>>> hello = tf.constant('Hello, TensorFlow!')
+>>> sess = tf.Session()
+>>> print(sess.run(hello))
+Hello, TensorFlow!
+>>> a = tf.constant(10)
+>>> b = tf.constant(32)
+>>> print(sess.run(a + b))
+42
+
+
+Anaconda安装
+下载:https://www.continuum.io/downloads
+bash Anaconda2-4.1.1-Linux-x86_64.sh
+
+Prepending PATH=/home/spark/anaconda2/bin to PATH in
+newly created /home/spark/.bashrc
+
+For this change to become active, you have to open a new terminal.
+
+Thank you for installing Anaconda2!
+
+Share your notebooks and packages on Anaconda Cloud!
+Sign up for free: https://anaconda.org
+
+conda create -n tensorflow python=2.7
+
+$ source activate tensorflow
+(tensorflow)$  # Your prompt should change
+
+# Linux/Mac OS X, Python 2.7/3.4/3.5, CPU only:
+(tensorflow)$ conda install -c conda-forge tensorflow
+
+cpu only
+export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.12.0rc0-cp27-none-linux_x86_64.whl
+
+ pip install --ignore-installed --upgrade $TF_BINARY_URL
+
+test
+
+测试
+$ python
+...
+>>> import tensorflow as tf
+>>> hello = tf.constant('Hello, TensorFlow!')
+>>> sess = tf.Session()
+>>> print(sess.run(hello))
+Hello, TensorFlow!
+>>> a = tf.constant(10)
+>>> b = tf.constant(32)
+>>> print(sess.run(a + b))
+42
+
+退出 tensorflow环境
+source deactivate
+
+Run a TensorFlow demo model
+
+python -c 'import os; import inspect; import tensorflow; print(os.path.dirname(inspect.getfile(tensorflow)))'
+
+因为安装了anaconda 改了默认python路径，这里把它改回来
+sudo gedit ~/.bashrc
+source ~/.bashrc
+
+再次测试
+python -c 'import os; import inspect; import tensorflow; print(os.path.dirname(inspect.getfile(tensorflow)))'
+spark@zhenghuangcheng:~$ python -c 'import os; import inspect; import tensorflow; print(os.path.dirname(inspect.getfile(tensorflow)))'
+/usr/local/lib/python2.7/dist-packages/tensorflow
+
+python -m tensorflow.models.image.mnist.convolutional
+python /home/spark/anaconda2/envs/tensorflow/lib/python2.7/site-packages/tensorflow/models/image/mnist/convolutional.py
+
+
+step 18000, train accuracy 1
+step 18100, train accuracy 1
+step 18200, train accuracy 1
+step 18300, train accuracy 1
+step 18400, train accuracy 1
+step 18500, train accuracy 1
+step 18600, train accuracy 1
+step 18700, train accuracy 1
+step 18800, train accuracy 1
+step 18900, train accuracy 1
+step 19000, train accuracy 1
+step 19100, train accuracy 1
+step 19200, train accuracy 1
+step 19300, train accuracy 1
+step 19400, train accuracy 1
+step 19500, train accuracy 0.98
+step 19600, train accuracy 1
+step 19700, train accuracy 1
+step 19800, train accuracy 1
+step 19900, train accuracy 1
+test accuracy 0.9929
+
+
+
+
+
+
+
